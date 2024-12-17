@@ -1,0 +1,14 @@
+# Usa la imagen base de Python 3.11
+FROM python:3.11-slim
+
+# Define el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el notebook desde tu máquina local al contenedor
+COPY reduc-operation-alumno21.ipynb /app/reduc-operation-alumno21.ipynb
+
+# Instala los paquetes necesarios: Jupyter, numpy y numba
+RUN pip install jupyter numpy numba
+
+# Define el comando por defecto que ejecutará el notebook con IPython
+CMD ["ipython", "/app/reduc-operation-alumno21.ipynb", "1000000"]
